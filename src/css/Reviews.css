@@ -1,0 +1,19 @@
+.itemCard {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    border: 1px solid;
+    padding: 5px;
+    background-color: #f2ebe9;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reviewsImage {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  max-width: 1350px;
+  max-height: 1300px;
+  }
