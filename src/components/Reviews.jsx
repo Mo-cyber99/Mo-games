@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { fetchReviews } from "../utility/API"
+import { fetchReviews } from "../utils/API"
 import { Spinner } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../css/Reviews.css'
@@ -25,7 +25,6 @@ export const AllReviews = () => {
         <h1>Reviews</h1>
         <ul>
             {reviews.map((review) => {
-                console.log(review);
                 return <div>
                     <li className="itemCard" key={review.review_id}>
                         <h2 className="review-title">

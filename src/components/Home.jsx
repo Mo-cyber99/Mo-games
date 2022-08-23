@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { AllReviews } from "./Reviews";
+import '../css/Home.css'
 
 export const Home = () => {
     return (

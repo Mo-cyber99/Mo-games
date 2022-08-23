@@ -1,0 +1,11 @@
+.nav-bar {
+    background-attachment: fixed;
+    background-color: black;
+}
+
+.home-img {
+    display: flex;
+    align-items: flex-start;
+    width: auto;
+    height: auto;
+}
