@@ -18,6 +18,7 @@ export const SingleReview = () => {
     });
   }, [review_id]);
 
+
   return (
     <>
       {isLoading ? (
@@ -34,11 +35,9 @@ export const SingleReview = () => {
             className="reviewsImage"
           />
           <p className="reviews-title">{singleReview.review_body}</p>
-          <p>
             <h3 className="review-votes">Votes:{singleReview.votes}</h3>
             <h4 className="review-owner"> {singleReview.owner}</h4>
             <p className="review-category">{singleReview.category}</p>
-          </p>
         </li>
       </div>
     </>
