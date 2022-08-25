@@ -20,12 +20,14 @@ export const AllReviews = () => {
         <>
          {isLoading ? (
             <div className="d-flex justify-content-center align-items-center">
-            <Spinner animation="border" size="lg" />
+            <Spinner animation="border" size="lg" color="white" />
             </div>
         ) : null }
         <h1>Reviews</h1>
         <ul>
-            {reviews.map((review) => {
+            {
+            React.Children.toArray(
+            reviews.map((review) => {
                 return <div>
                     <li className="itemCard" key={review.review_id}>
                      <Link to={`/reviews/${review.review_id}`} key={review.review_id}>
@@ -39,7 +41,7 @@ export const AllReviews = () => {
 						<p className="review-category">{review.category}</p>
                     </li>
                 </div>
-            })}
+            }))}
             </ul>
             </>
     )

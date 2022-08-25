@@ -26,21 +26,28 @@ export const fetchReviews = (category) => {
 }
 
 export const fetchReviewsByCategories = (category) => {
-    console.log(category, 'api');
     return gamesApi.get(`/reviews?category=${category}`).then(({ data }) => {
-        console.log(data);
       return data;
+    })
+    .catch((err) => {
+        console.log(err);
     });
   };
 
 export const fetchReviewsByID = (review_id) => {
     return gamesApi.get(`/reviews/${review_id}`).then(({ data }) => {
         return data;
-      });
+      })
+      .catch((err) => {
+        console.log(err);
+    });
 }
 
 export const updateVotes = (review_id, inc_votes) => {
     return gamesApi.patch(`/reviews/${review_id}`, { inc_votes }).then(({ data }) => {
       return data;
+    })
+    .catch((err) => {
+        console.log(err);
     });
   };
