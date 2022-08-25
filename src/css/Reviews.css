@@ -2,18 +2,29 @@
     margin-bottom: 1rem;
     margin-right: 1rem;
     border: 1px solid;
+    border-color: #00adb5;
     padding: 5px;
     background-color: #f2ebe9;
-    display: grid;
+    display: flexbox;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
+  
+  h1 {
+    color: beige;
+  }
 
   .reviewsImage {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
-  max-width: 1350px;
-  max-height: 1300px;
+    width: 90%;
+    height: auto;
+    align-items: center;
+    /* align-items: flex-end; */
+    margin: 15px;
+    padding: 0 5px;
+    box-shadow: none;
+  }
+  img {
+    text-decoration: none;
+    border: 0px;
   }
