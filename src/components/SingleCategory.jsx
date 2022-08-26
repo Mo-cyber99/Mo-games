@@ -7,7 +7,6 @@ export const SingleCategory = () => {
   const [SingleCategory, setSingleCategory] = useState([]);
   useEffect(() => {
     fetchReviewsByCategories(slug).then((reviewCategory) => {
-        console.log(reviewCategory);
       setSingleCategory(reviewCategory);
     });
   }, [slug]);
@@ -15,8 +14,7 @@ export const SingleCategory = () => {
   return (
     <ul className="review-card">
       {SingleCategory.map((chosenReview) => {
-        return <div>
-            <li className="itemCard" key={chosenReview.review_id}>
+        return <li className="itemCard" key={chosenReview.review_id}>
             <Link to={`/reviews/${chosenReview.review_id}`} key={chosenReview.review_id}>
             <h2 className="review-title">
                 {chosenReview.review_id}: {chosenReview.title}
@@ -27,7 +25,6 @@ export const SingleCategory = () => {
             <h4 className="review-owner"> {chosenReview.owner}</h4>
             <p className="review-category">{chosenReview.category}</p>
         </li>
-        </div>
       })}
     </ul>
   );
