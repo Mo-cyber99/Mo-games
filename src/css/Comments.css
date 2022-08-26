@@ -1,0 +1,38 @@
+@media only screen and (min-width: 780px) {
+    .comments-container {
+        display: flexbox;
+        flex-wrap: wrap;
+        background-color: #222831;
+        margin: 20px;
+        padding: 20px;
+        border-style: initial;
+        border: 1px solid;
+        border-color: #00adb5;
+        color: beige;
+    }
+}
+
+h1 {
+    color: beige;
+}
+
+.comments-container {
+    display: flexbox;
+    flex-wrap: wrap;
+    background-color: #222831;
+    margin: 20px;
+    padding: 20px;
+    border-style: initial;
+    border: 1px solid;
+    border-color: #00adb5;
+    color: beige;
+}
+
+.loading{
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Indie Flower', cursive;
+    margin: 100px;
+    color: beige;
+}

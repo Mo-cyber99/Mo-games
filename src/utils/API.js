@@ -1,53 +1,82 @@
-const axios = require('axios')
+const axios = require("axios");
 const gamesApi = axios.create({
-    baseURL: 'https://backend-games-api.herokuapp.com/api',
-    headers: {
-        "Content-type": "application/json"
-    }
-})
+  baseURL: "https://backend-games-api.herokuapp.com/api",
+  headers: {
+    "Content-type": "application/json",
+  },
+});
 export const fetchCategories = () => {
-    return gamesApi.get('/categories').then(({ data }) => {
-			return data;
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-}
+  return gamesApi
+    .get("/categories")
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 export const fetchReviews = (category) => {
-    let queryStr = `/reviews`;
-	if (category) queryStr += `?category=${category}`;
-	return gamesApi.get(queryStr).then(({ data }) => {
-			return data;
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-}
+  let queryStr = `/reviews`;
+  if (category) queryStr += `?category=${category}`;
+  return gamesApi
+    .get(queryStr)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 export const fetchReviewsByCategories = (category) => {
-    return gamesApi.get(`/reviews?category=${category}`).then(({ data }) => {
+  return gamesApi
+    .get(`/reviews?category=${category}`)
+    .then(({ data }) => {
       return data;
     })
     .catch((err) => {
-        console.log(err);
+      console.log(err);
     });
-  };
+};
 
 export const fetchReviewsByID = (review_id) => {
-    return gamesApi.get(`/reviews/${review_id}`).then(({ data }) => {
-        return data;
-      })
-      .catch((err) => {
-        console.log(err);
-    });
-}
-
-export const updateVotes = (review_id, inc_votes) => {
-    return gamesApi.patch(`/reviews/${review_id}`, { inc_votes }).then(({ data }) => {
+  return gamesApi
+    .get(`/reviews/${review_id}`)
+    .then(({ data }) => {
       return data;
     })
     .catch((err) => {
-        console.log(err);
+      console.log(err);
+    });
+};
+
+export const updateVotes = (review_id, inc_votes) => {
+  return gamesApi
+    .patch(`/reviews/${review_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const fetchCommentsByID = (review_id) => {
+  return gamesApi.get(`/reviews/${review_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+};
+
+export const fetchUsers = () => {
+  return gamesApi.get(`/users`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const postComments = (review_id, body) => {
+  return gamesApi.post(`/reviews/${review_id}/comments`, body).then(({ data }) => {
+    console.log(data);
+      return data;
+    })
+    .catch((error) => {
+      console.log(error);
     });
   };

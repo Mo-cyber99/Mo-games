@@ -9,6 +9,9 @@ export const Nav =() => {
         <span>
             <Link to='/categories'>Categories</Link>
         </span>
+        <span className="prof">
+            <Link to='/profile'>Users</Link>
+        </span>
     </nav>
     )
 }

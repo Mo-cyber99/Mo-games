@@ -5,7 +5,13 @@
 
 .home-img {
     display: flex;
-    align-items: flex-start;
+    align-self: flex-start;
+    justify-self: start;
     width: auto;
     height: auto;
+}
+
+.prof {
+    display: block;
+    justify-content: space-between;
 }
