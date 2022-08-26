@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LoggedInContext, UserContext } from "./contexts/User";
+import { useState } from "react";
 import { Home } from "./components/Home";
 import { Nav } from "./components/Nav";
 import { AllReviews } from "./components/Reviews";
@@ -7,11 +9,17 @@ import { SingleCategory } from "./components/SingleCategory";
 import { SingleReview } from "./components/SingleReview";
 import { Comments } from "./components/Comments";
 import { Profile } from "./components/Profile";
+import { NewProfile } from "./components/NewProfile";
 import { PostComments } from "./components/PostComments";
 import "./App.css";
 
 function App() {
+  const [currUser, setCurrUser] = useState('guest');
+  const [isLoggedIn, setIsLoggedIn] = ([]);
+
   return (
+    <UserContext.Provider value={{currUser, setCurrUser}}>
+    <LoggedInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
     <BrowserRouter>
       <div className="App">
         <Nav />
@@ -26,6 +34,7 @@ function App() {
             element={<SingleCategory />}
           />
           <Route path="/reviews/:review_id/comments" element={<Comments />} />
+          <Route path="/new-profile" element={<NewProfile />} />
           <Route path="/profile" element={<Profile />} />
           <Route
             path="/reviews/:review_id/comments/reviews/:review_id/newcomments"
@@ -34,6 +43,8 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </LoggedInContext.Provider>
+    </UserContext.Provider>
   );
 }
 

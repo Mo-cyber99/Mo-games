@@ -71,12 +71,15 @@ export const fetchUsers = () => {
   });
 };
 
+export const createUsers = (username, name, avatar_url) => {
+  return gamesApi.post(`/users`, {username, name, avatar_url})
+}
+
 export const postComments = (review_id, body) => {
+  console.log(review_id);
+  console.log(body);
   return gamesApi.post(`/reviews/${review_id}/comments`, body).then(({ data }) => {
     console.log(data);
       return data;
     })
-    .catch((error) => {
-      console.log(error);
-    });
   };

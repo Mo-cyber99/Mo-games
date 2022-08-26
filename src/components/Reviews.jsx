@@ -20,7 +20,7 @@ export const AllReviews = () => {
     <>
       {isLoading ? (
         <div className="d-flex justify-content-center align-items-center">
-          <Spinner animation="border" size="lg" color="white" />
+          <Spinner animation="border" size="lg" style={{color: 'white'}} />
         </div>
       ) : null}
       <h1>Reviews</h1>

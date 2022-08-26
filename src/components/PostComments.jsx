@@ -7,7 +7,7 @@ import "../css/PostComments.css";
 export const PostComments = () => {
     const { review_id } = useParams();
     const [newComment, setNewComment] = useState({
-		username: '',
+		author: 'tickle122',
 		body: '',
 	});
 	const navigate = useNavigate();
@@ -21,32 +21,21 @@ export const PostComments = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		postComments(newComment, review_id).then((res) => {
+		postComments(review_id, newComment).then((res) => {
 			console.log(res);
 		});
 		setNewComment({
-			username: '',
+			author: 'tickle122',
 			body: '',
 		});
-		navigate('/');
+		navigate(`/reviews/${review_id}/comments`);
 	};
 
 	return (
 		<div>
 			<form className='postComments-form' onSubmit={handleSubmit}>
 				<h3 className='post-comment-title'>Add your Comment!</h3>
-				<label className='user-label'>Username</label>
-				<br />
 				<div className='input-div'>
-					<input
-						className='username-input'
-						onChange={handleChange}
-						value={newComment.username}
-						type='text'
-						name='username'
-                        required
-					/>
-					<br />
 					<label className='body-label'>Comment</label>
 					<br />
 					<input
