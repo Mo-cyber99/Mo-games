@@ -20,36 +20,60 @@ export const Comments = () => {
   }, [review_id]);
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   return comments.length === 0 ? (
     <div>
-        <p className='loading'>No Comments </p>
-        <Link className='comment-link' to={`reviews/${review_id}/newcomments`}>
-            <Button className='post-comment-btn' variant='outlined'>
-                Post a Comment
-            </Button>
-        </Link>
+      <p className="loading">No Comments </p>
+      <li>
+      <Link to={`reviews/${review_id}/newcomments`}>
+        <Button className="post-comment-btn" variant="outlined">
+          Post a Comment
+        </Button>
+      </Link>
+      </li>
+      <Link
+                  
+                  to={`/reviews/${review_id}`}
+                  >
+                  <Button variant="outlined">Load Review</Button>
+                </Link>
     </div>
-) : (
+  ) : (
     <div>
-    <h1>Comments</h1>
-    <ul>
+      <h1>Comments</h1>
+      
+      <ul>
         {comments.map((comment) => {
-            console.log(comment);
-            return (
-                <>
-                    <li key={comment.comment_id} className="comments-container">
-                        <h4>{comment.author}</h4>
-                        <p>{comment.body}</p>
-                        <h5>{comment.created_at}</h5>
-                    </li>
-
-                </>
-            );
+          console.log(comment);
+          return (
+            <>
+              <li key={comment.comment_id} className="comments-container">
+                <h4>{comment.author}</h4>
+                <p>{comment.body}</p>
+                <h5>{comment.created_at}</h5>
+                
+              </li>
+              
+            </>
+          );
         })}
-    </ul>
-</div>
+      </ul>
+      <li>
+      <Link to={`reviews/${review_id}/newcomments`}>
+        <Button className="post-comment-btn" variant="outlined">
+          Post a Comment
+        </Button>
+      </Link>
+      </li>
+      <Link
+                  className="comment-link"
+                  to={`/reviews/${review_id}`}
+                >
+                  <Button variant="outlined">Load Review</Button>
+                </Link>
+    </div>
+    
   );
 };
