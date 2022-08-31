@@ -16,9 +16,14 @@ export const fetchCategories = () => {
     });
 };
 
-export const fetchReviews = (category) => {
+export const fetchReviews = (category, sort_by, order, limit, p) => {
   let queryStr = `/reviews`;
   if (category) queryStr += `?category=${category}`;
+  if (sort_by) queryStr += `?sort_by=${sort_by}`;
+  if (order) queryStr += `&order=${order}`;
+  if (limit === 0) limit = 10;
+  if (limit) queryStr += `&limit=${limit}`;
+  if(p) queryStr += `&p=${p}`;
   return gamesApi
     .get(queryStr)
     .then(({ data }) => {
@@ -76,10 +81,7 @@ export const createUsers = (username, name, avatar_url) => {
 }
 
 export const postComments = (review_id, body) => {
-  console.log(review_id);
-  console.log(body);
   return gamesApi.post(`/reviews/${review_id}/comments`, body).then(({ data }) => {
-    console.log(data);
       return data;
     })
   };

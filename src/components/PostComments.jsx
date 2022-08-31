@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button } from '@mui/material';
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { postComments } from "../utils/API";
 import "../css/PostComments.css";
 
 export const PostComments = () => {
     const { review_id } = useParams();
     const [newComment, setNewComment] = useState({
-		author: 'tickle122',
+		author: 'guest',
 		body: '',
 	});
 	const navigate = useNavigate();
@@ -22,10 +22,9 @@ export const PostComments = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		postComments(review_id, newComment).then((res) => {
-			console.log(res);
 		});
 		setNewComment({
-			author: 'tickle122',
+			author: 'guest',
 			body: '',
 		});
 		navigate(`/reviews/${review_id}/comments`);
@@ -52,6 +51,11 @@ export const PostComments = () => {
 				<Button variant='contained' type='submit'>
 					Submit
 				</Button>
+			<li>
+			<Link className="comment-link" to={`/reviews/${review_id}/comments`}>
+        <Button variant='contained'>Load Comments</Button>
+      </Link>
+			</li>
 			</form>
 		</div>
 	);

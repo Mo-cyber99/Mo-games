@@ -1,55 +1,54 @@
 .profile-container {
-    margin: 40px;
+  margin: 40px;
 }
 
 .error {
-    border: 1px solid black;
-    background-color: beige;
-    padding: 10px;
-    margin: 20px;
-    max-width: 200px;
+  border: 1px solid black;
+  background-color: beige;
+  padding: 10px;
+  margin: 20px;
+  max-width: 200px;
 }
 
 .profile {
-    display: flexbox;
-    flex-wrap: wrap;
-    margin: 30px auto;
-    border: 1px solid black;
-    padding: 20px;
-    box-shadow: 0px 0px 5px black;
-    width: 60%;
-    border-radius: 10px;
-    background-color: cadetblue;
+  display: flexbox;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  border: 1px solid black;
+  padding: 20px;
+  box-shadow: 0px 0px 5px black;
+  width: 60%;
+  border-radius: 10px;
+  background-color: cadetblue;
 }
 
 .profile > h3 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: beige;
-
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: beige;
 }
 
-.profile-img{
-    width: 20%;
-    box-shadow: 0px 0px 5px black;
-    margin: 30px;
-    border: 1px solid black;
-    border-radius: 100px;
+.profile-img {
+  width: 20%;
+  box-shadow: 0px 0px 5px black;
+  margin: 30px;
+  border: 1px solid black;
+  border-radius: 100px;
 }
 
-.profile-title{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    box-shadow: 0px 0px 5px rgb(10, 10, 9);
-    width: 40%;
-    margin: auto;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid black;
-    text-align: center;
-    color: beige;
+.profile-title {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  box-shadow: 0px 0px 5px rgb(10, 10, 9);
+  width: 40%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+  color: beige;
 }
 
 .user-link {
-    display: inline-block;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -57,4 +56,52 @@
   background-color: beige;
   padding: 10px;
   margin: 20px;
+}
+
+.account-link {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  background-color: cadetblue;
+  padding: 10px;
+  margin: 20px;
+}
+
+.profile-link {
+    margin: 175px auto;
+    background-color: rgba(224, 224, 224, 0.5);
+    width: 40%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px black;
+    text-align: center;
+  }
+
+.username-in {
+  border-radius: 4px;
+  margin-right: 15%;
+}
+
+.name-input {
+  border-radius: 4px;
+  margin-right: 9%;
+}
+
+.avatar-input {
+  border-radius: 4px;
+  margin-right: 17%;
+}
+
+.username-in:hover {
+  border: 2px solid #1876d1;
+}
+
+.name-input:hover {
+  border: 2px solid #1876d1;
+}
+
+.avatar-input:hover {
+  border: 2px solid #1876d1;
 }

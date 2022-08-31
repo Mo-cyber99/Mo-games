@@ -3,6 +3,10 @@
     background-color: black;
 }
 
+.category {
+    margin-left: .5rem;
+}
+
 .home-img {
     display: flex;
     align-self: flex-start;
@@ -14,4 +18,19 @@
 .prof {
     display: block;
     justify-content: space-between;
+}
+
+.header {
+    display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  background-color: gray;
+  padding: 10px;
+  margin: 20px;
+}
+
+.curr-user {
+    background-color: azure;
 }

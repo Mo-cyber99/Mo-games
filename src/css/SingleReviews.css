@@ -62,4 +62,11 @@
       text-decoration: none;
       border: 0px;
     }
+
+    .upvote {
+      background-color: greenyellow;
+    }
+    .downvote {
+      background-color: red;
+    }
   }

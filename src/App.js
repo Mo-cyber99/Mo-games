@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoggedInContext, UserContext } from "./contexts/User";
 import { useState } from "react";
 import { Home } from "./components/Home";
+import { Header } from "./components/Header";
 import { Nav } from "./components/Nav";
 import { AllReviews } from "./components/Reviews";
 import { Categories } from "./components/Categories";
@@ -16,13 +17,15 @@ import "./App.css";
 function App() {
   const [currUser, setCurrUser] = useState('guest');
   const [isLoggedIn, setIsLoggedIn] = ([]);
+  const [categories, setCategories] = useState([]);
 
   return (
     <UserContext.Provider value={{currUser, setCurrUser}}>
     <LoggedInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
     <BrowserRouter>
       <div className="App">
-        <Nav />
+        <Header />
+        <Nav categories={categories} setCategories={setCategories}/>
 
         <Routes>
           <Route path="/" element={<Home />} />

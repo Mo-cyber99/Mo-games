@@ -65,11 +65,11 @@ export const SingleReview = () => {
           className="reviewsImage"
         />
         <p className="review-title">{singleReview.review_body}</p>
-        <h3 className="review-votes">Votes:{singleReview.votes + vote}</h3>
-        <button onClick={handleIncrementedVotes}>👍</button>
-        <button onClick={handleDecrementedVotes}>👎</button>
-        <h4 className="review-owner"> {singleReview.owner}</h4>
-        <p className="review-category">{singleReview.category}</p>
+        <button className="upvote" onClick={handleIncrementedVotes}>👍</button>
+        <h3 className="review-votes">{singleReview.votes + vote}</h3>
+        <button className="downvote" onClick={handleDecrementedVotes}>👎</button>
+        <h4 className="review-owner">written by: {singleReview.owner}</h4>
+        <p className="review-category">category: {singleReview.category}</p>
       <Link className="comment-link" to={`/reviews/${singleReview.review_id}/comments`}>
         <Button variant='outlined'>Load Comments</Button>
       </Link>

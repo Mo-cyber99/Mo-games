@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUsers } from "../utils/API";
+import { Button } from '@mui/material';
 import "../css/Profile.css";
 
 export const NewProfile = () => {
@@ -38,16 +39,33 @@ export const NewProfile = () => {
     }
 
     return (
-        <section className="user-link">
+        <section className="profile-link">
             <h2>Sign up for an account</h2>
             <form onSubmit={handleSubmit}>
                 <section><label htmlFor="username">Username: </label>
-                <input onChange={handleUsernameChange} /></section><br />
+                <input 
+                className="username-in"
+                onChange={handleUsernameChange}
+                type='text'
+                name="username"
+                /></section><br />
                 <section><label htmlFor="name">Name: </label>
-                <input onChange={handleNameChange} /></section><br />
+                <input
+                className="name-input"
+                onChange={handleNameChange}
+                type='text'
+                name="name"
+                 /></section><br />
                 <section><label htmlFor="avatar_url">Avatar URL: </label>
-                <input onChange={handleUrlChange} /></section><br />
-                <button>Submit</button>
+                <input
+                className="avatar-input"
+                onChange={handleUrlChange}
+                type='text'
+                name="avatar"
+                 /></section><br />
+                <Button variant='contained' type='submit'>
+					Submit
+				</Button>
             </form>
             {isError ? <p>Sorry there has been a problem, please try again</p>: null}
             {isLoading ? <p>Creating...</p>: null}

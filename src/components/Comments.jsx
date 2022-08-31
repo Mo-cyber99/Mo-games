@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { fetchCommentsByID } from "../utils/API";
+import { dateCalculator } from "../utils/dateFormatter";
 import { Button } from "@mui/material";
 // import { Spinner } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,6 +19,12 @@ export const Comments = () => {
       setIsLoading(false);
     });
   }, [review_id]);
+
+  const sortedComments = [...comments].sort((a, b) => {
+    let da = new Date(a.created_at),
+      db = new Date(b.created_at);
+    return db - da;
+  });
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -45,14 +52,13 @@ export const Comments = () => {
       <h1>Comments</h1>
       
       <ul>
-        {comments.map((comment) => {
-          console.log(comment);
+        {sortedComments.map((comment) => {
           return (
             <>
               <li key={comment.comment_id} className="comments-container">
                 <h4>{comment.author}</h4>
                 <p>{comment.body}</p>
-                <h5>{comment.created_at}</h5>
+                <h5>{dateCalculator(comment.created_at)}</h5>
                 
               </li>
               
