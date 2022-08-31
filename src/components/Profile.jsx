@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Profile.css";
 
 export const Profile = () => {
+
   // eslint-disable-next-line
   const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
   const { currUser, setCurrUser } = useContext(UserContext);
@@ -24,7 +25,7 @@ export const Profile = () => {
         setIsError(true);
         setIsLoading(false);
       });
-  }, []);
+  }, [profile]);
 
   const changeProfile = (e) => {
     setCurrUser(e.target.value);
@@ -41,7 +42,7 @@ export const Profile = () => {
     <div>
 		<section>
       <h3 className="user-link">Current User: {currUser}</h3> <br></br>
-      <Link className="user-link" to="/new-profile">
+      <Link className="account-link" style={{color: 'darkslateblue'}} to="/new-profile">
         Create a new account
       </Link>
       <ul className="profile">

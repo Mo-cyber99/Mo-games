@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { fetchReviews } from "../utils/API";
+import { SortBy } from "./Queries/SortBy";
 import { Spinner } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Reviews.css";
 
 export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortByValue, setSortByValue] = useState("created_at");
+  const [orderByValue, setOrderByValue] = useState("desc");
+  const [searchTerm, setSearchTerm] = useSearchParams({
+    sort_by: "",
+    order: "",
+  });
 
   useEffect(() => {
     fetchReviews().then((reviews) => {
@@ -24,6 +31,11 @@ export const AllReviews = () => {
         </div>
       ) : null}
       <h1>Reviews</h1>
+       <SortBy
+          sortByValue={sortByValue}
+          setSortByValue={setSortByValue}
+          setSearchTerm={setSearchTerm}
+        />
       <ul>
         {React.Children.toArray(
           reviews.map((review) => {
