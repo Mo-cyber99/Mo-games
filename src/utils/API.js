@@ -85,3 +85,9 @@ export const postComments = (review_id, body) => {
       return data;
     })
   };
+
+export const deleteCommentByID = (comment_id) => {
+  return gamesApi.delete(`/comments/${comment_id}`).catch((err) => {
+    console.log(err);
+  })
+}
