@@ -5,12 +5,14 @@ import { Spinner } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Reviews.css";
+import {CCard} from '@coreui/react'
 
 export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortByValue, setSortByValue] = useState("created_at");
-  const [orderByValue, setOrderByValue] = useState("desc");
+  // const [orderByValue, setOrderByValue] = useState("desc");
+  // eslint-disable-next-line
   const [searchTerm, setSearchTerm] = useSearchParams({
     sort_by: "",
     order: "",
@@ -41,10 +43,11 @@ export const AllReviews = () => {
           reviews.map((review) => {
             return (
               <li className="itemCard" key={review.review_id}>
+                <CCard>
                 <Link
                   to={`/reviews/${review.review_id}`}
                   key={review.review_id}
-                >
+                  >
                   <h2 className="review-title">
                     {review.review_id}: {review.title}
                   </h2>
@@ -52,11 +55,12 @@ export const AllReviews = () => {
                     src={review.review_img_url}
                     alt={review.title}
                     className="reviewsImage"
-                  />
+                    />
                 </Link>
                 <h3 className="review-votes">Votes:{review.votes}</h3>
                 <h4 className="review-owner"> {review.owner}</h4>
                 <p className="review-category">{review.category}</p>
+                    </CCard>
               </li>
             );
           })

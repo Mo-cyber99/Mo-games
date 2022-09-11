@@ -12,6 +12,7 @@ import { Comments } from "./components/Comments";
 import { Profile } from "./components/Profile";
 import { NewProfile } from "./components/NewProfile";
 import { PostComments } from "./components/PostComments";
+import { ErrorPage } from "./components/ErrorPage";
 import "./App.css";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             path="/reviews/:review_id/comments/reviews/:review_id/newcomments"
             element={<PostComments />}
           />
+          <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </div>
     </BrowserRouter>
