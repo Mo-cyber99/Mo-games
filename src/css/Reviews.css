@@ -28,6 +28,24 @@
     border: 0px;
   }
 
+  .inputlabel-one {
+    color: gray;
+  }
+
+  .first-form {
+    color: gray;
+  }
+
+  .query {
+    margin: auto;
+    background-color: rgba(224, 224, 224, 0.5);
+    width: 20%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px black;
+    text-align: center;
+  }
+
   @media only screen and (min-width: 780px) {
     .itemCard {
       margin-bottom: 1rem;
@@ -57,5 +75,8 @@
     img {
       text-decoration: none;
       border: 0px;
+    }
+    .inputlabel-one {
+      color: gray;
     }
   }

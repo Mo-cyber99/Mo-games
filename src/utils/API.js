@@ -78,7 +78,7 @@ export const fetchUsers = () => {
 
 export const createUsers = (username, name, avatar_url) => {
   return gamesApi.post(`/users`, {username, name, avatar_url})
-}
+};
 
 export const postComments = (review_id, body) => {
   return gamesApi.post(`/reviews/${review_id}/comments`, body).then(({ data }) => {
@@ -90,4 +90,10 @@ export const deleteCommentByID = (comment_id) => {
   return gamesApi.delete(`/comments/${comment_id}`).catch((err) => {
     console.log(err);
   })
-}
+};
+
+export const postReviews = (owner, title, review_body, designer, category) => {
+  return gamesApi.post('/reviews').then(({ data }) => {
+    return data;
+  })
+};

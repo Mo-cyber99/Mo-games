@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { fetchReviews } from "../utils/API";
-import { SortBy } from "./Queries/SortBy";
 import { Spinner } from "react-bootstrap";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Reviews.css";
+import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import {CCard} from '@coreui/react'
 
 export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [sortByValue, setSortByValue] = useState("created_at");
-  // const [orderByValue, setOrderByValue] = useState("desc");
-  // eslint-disable-next-line
-  const [searchTerm, setSearchTerm] = useSearchParams({
-    sort_by: "",
-    order: "",
-  });
+  const [sort_by, setSort_By] = useState('');
+  const [order_By, setOrder_By] = useState('');
+  const { search } = useLocation();
+  const categoryNameSearch = search.slice(10, search.length);
+
 
   useEffect(() => {
-    fetchReviews().then((reviews) => {
-      setReviews(reviews);
+    fetchReviews(categoryNameSearch, sort_by, order_By).then((res) => {
+      setReviews(res);
       setIsLoading(false);
     });
-  }, []);
+  }, [categoryNameSearch, sort_by, order_By]);
 
   return (
     <>
@@ -33,11 +31,36 @@ export const AllReviews = () => {
         </div>
       ) : null}
       <h1>Reviews</h1>
-       <SortBy
-          sortByValue={sortByValue}
-          setSortByValue={setSortByValue}
-          setSearchTerm={setSearchTerm}
-        />
+      <section className="query">
+      <FormControl fullWidth>
+				<InputLabel className='inputlabel-one' id='demo-simple-select-label'>
+					Sort By
+				</InputLabel>
+				<Select
+					className='first-form'
+					value={sort_by}
+					onChange={(e) => setSort_By(e.target.value)}
+					name='reviews'
+          >
+					<MenuItem value='votes'>Votes</MenuItem>
+					<MenuItem value='title'>Title</MenuItem>
+				</Select>
+				<FormControl fullWidth>
+					<InputLabel className='inputlabel' id='demo-simple-select-label'>
+						Order By
+					</InputLabel>
+					<Select
+						className='second-form'
+						value={order_By}
+						onChange={(e) => setOrder_By(e.target.value)}
+						name='reviews'
+            >
+						<MenuItem value='asc'>Ascending</MenuItem>
+						<MenuItem value='desc'>Descending</MenuItem>
+					</Select>
+				</FormControl>
+			</FormControl>
+            </section>
       <ul>
         {React.Children.toArray(
           reviews.map((review) => {

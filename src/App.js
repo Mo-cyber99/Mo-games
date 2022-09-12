@@ -12,6 +12,7 @@ import { Comments } from "./components/Comments";
 import { Profile } from "./components/Profile";
 import { NewProfile } from "./components/NewProfile";
 import { PostComments } from "./components/PostComments";
+import { PostReviews } from "./components/PostReviews";
 import { ErrorPage } from "./components/ErrorPage";
 import "./App.css";
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/reviews" element={<AllReviews />} />
           <Route path="/reviews/:review_id" element={<SingleReview />} />
+          <Route path="/post-review" element={<PostReviews categories={categories} />} />
           <Route path="/categories" element={<Categories />} />
           <Route
             path="/reviews/categories/:slug"
