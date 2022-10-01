@@ -3,7 +3,7 @@ import { postReviews } from "../utils/API";
 import { UserContext } from "../contexts/User";
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../css/PostReviews.css'
 
@@ -50,13 +50,17 @@ export const PostReviews = ({ categories }) => {
           setIsLoading(false);
           setErr(true);
         });
-    } else {
-      setEmpty(true);
-    }
-  };
-
-  return (
+      } else {
+        setEmpty(true);
+      }
+    };
+    
+    return (
+    <div>
+    <h1 color="beige">Under Construction</h1>
+    <h1 color="beige">Coming Soon...</h1>
     <section className="post-review-link">
+      <h1>Demo</h1>
       <h2>New Review</h2>
       <h3>Logged in as {currUser}</h3>
       <form onSubmit={handleSubmit}>
@@ -67,7 +71,7 @@ export const PostReviews = ({ categories }) => {
               title.length < 1 ? "post-review-input" : "post-review-input-green"
             }
             onChange={handleTitleChange}
-          />
+            />
         </h3>
         <section>
           <label htmlFor="review-body"></label>
@@ -77,19 +81,19 @@ export const PostReviews = ({ categories }) => {
             id={body.length === 0 ? "comment-body" : "comment-body-green"}
             onChange={handleBodyChange}
             placeholder="Review here..."
-          ></textarea>
+            ></textarea>
         </section>
         <section>
           <label htmlFor="post-review-input">Designer: </label>
           <input
             id={
               designer.length < 1
-                ? "post-review-input"
-                : "post-review-input-green"
+              ? "post-review-input"
+              : "post-review-input-green"
             }
             onChange={handleDesignerChange}
             placeholder="Game Designer..."
-          />
+            />
         </section>
         <br />
         <section>
@@ -98,7 +102,7 @@ export const PostReviews = ({ categories }) => {
             name="category"
             id="post-review-category"
             onChange={handleCategoryChange}
-          >
+            >
             {categories.map((category) => {
               return (
                 <option key={category} value={category.slug}>
@@ -110,9 +114,9 @@ export const PostReviews = ({ categories }) => {
         </section>
         <br />
         <section>
-          <Button variant="contained" type="submit">
+          {/* <Button variant="contained" type="submit">
             Submit
-          </Button>
+          </Button> */}
         </section>
         {empty ? <p>Please fill in all the above fields</p> : null}
         {isLoading ? (
@@ -123,5 +127,6 @@ export const PostReviews = ({ categories }) => {
         {err ? <p>Something went wrong, please try again</p> : null}
       </form>
     </section>
+        </div>
   );
 };

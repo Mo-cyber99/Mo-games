@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { fetchReviews } from "../utils/API";
 import { Spinner } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/Reviews.css";
+import { Button } from "@mui/material";
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import {CCard} from '@coreui/react'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/Reviews.css";
 
 export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -31,6 +32,11 @@ export const AllReviews = () => {
         </div>
       ) : null}
       <h1>Reviews</h1>
+      <Link to={'/post-review'}>
+        <Button variant="contained">
+          Create Review
+        </Button>
+      </Link>
       <section className="query">
       <FormControl fullWidth>
 				<InputLabel className='inputlabel-one' id='demo-simple-select-label'>
