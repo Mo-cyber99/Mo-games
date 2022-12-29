@@ -1,6 +1,6 @@
 const axios = require("axios");
 const gamesApi = axios.create({
-  baseURL: "https://backend-games-api.herokuapp.com/api",
+  baseURL: "https://mo-games-backend.onrender.com/api",
   headers: {
     "Content-type": "application/json",
   },
